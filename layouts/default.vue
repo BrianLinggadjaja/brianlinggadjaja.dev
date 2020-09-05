@@ -3,7 +3,7 @@
     <b-navbar class="navbar is-primary is-spaced">
       <template slot="brand">
         <b-navbar-item href="/">
-          <logo class="logo" />
+          <logo class="logo" alt="home" />
         </b-navbar-item>
       </template>
 
@@ -15,7 +15,7 @@
           Projects
         </b-navbar-item>
         <b-navbar-dropdown label="Blog">
-          <b-navbar-item href="/">
+          <b-navbar-item href="/blog">
             2020
           </b-navbar-item>
         </b-navbar-dropdown>

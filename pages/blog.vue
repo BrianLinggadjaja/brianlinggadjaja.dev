@@ -9,7 +9,7 @@
   </main>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
   main {
     padding: 1rem 3rem;
   }
@@ -21,6 +21,14 @@
   h1 {
     font-weight: bold;
     font-size: 4rem;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 1.5rem;
+    margin-left: -1.5rem;
   }
 </style>
 
@@ -34,7 +42,7 @@ export default {
   },
 
   async asyncData ({ $content }) {
-    const blog = await $content('/2020/hello').fetch()
+    const blog = await $content('/2020/blog-0').fetch()
 
     return {
       blog

@@ -7,7 +7,7 @@
             2020
             <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'" />
           </template>
-          <b-menu-item icon="wysiwyg" label="Blog 0" />
+          <b-menu-item icon="file-document" label="Blog 0" />
         </b-menu-item>
       </b-menu-list>
     </b-menu>
