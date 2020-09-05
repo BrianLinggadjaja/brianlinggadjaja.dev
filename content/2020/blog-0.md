@@ -18,7 +18,7 @@ I did some research on domain name providers and ended up going with `NameCheap`
   </aside>
 
   <p class="column">
-    Using <strong>Figma</strong> I was able to make infographics using the tools provided to craft my own personal logo. I started with the idea that my logo would contrast in colors on both Black & White backgrounds and be accessible enough to see from a farther distance from the screen. My idea was to play around with my initials <strong>L</strong> & <strong>B</strong> and integrate it within the logo itself. I played around with the idea of using simplistic shapes to generate my logo but ended up with the logo that's currently on the page after asking a few of my friends. Figma so far is an awesome service similar to **Adobe XD** which I am more familar with, I'll definetly take more time in learning the new tools **Figma** provides.
+    Using <strong>Figma</strong> I was able to make infographics using the tools provided to craft my own personal logo. I started with the idea that my logo would contrast in colors on both Black & White backgrounds and be accessible enough to see from a farther distance from the screen. My idea was to play around with my initials <strong>L</strong> & <strong>B</strong> and integrate it within the logo itself. I played around with the idea of using simplistic shapes to generate my logo but ended up with the logo that's currently on the page after asking a few of my friends. Figma so far is an awesome service similar to <strong>Adobe XD</strong> which I am more familar with, I'll definetly take more time in learning the new tools <strong>Figma</strong> provides.
   </p>
 </div>
 
