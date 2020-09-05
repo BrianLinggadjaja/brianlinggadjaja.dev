@@ -38,5 +38,7 @@ https://nuxtjs.org/
 
 Time is valuable and there a lot of components on the web that are very common across each other. I am very familiar with `Bootstrap` which is the most common UI library and decided to try out `Buefy` for a different flavor. So far I am very impressed by the simplistic stylistic approach made by the Buefy team. Their modern approach to UI components are a breath of fresh air compared to the over-used bootstrap components all over the web.
 
+<br>
+
 Find **Buefy** on the following link.
 https://buefy.org/
