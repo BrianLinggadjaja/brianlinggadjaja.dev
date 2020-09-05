@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
+    "dev:spa": "nuxt --spa",
+    "prod": "yarn lint; yarn generate",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "lint:style": "stylelint **/*.{vue,css} --ignore-path .gitignore",
+    "lint:js": "eslint --fix --ext .js,.vue --ignore-path .gitignore .",
+    "lint:style": "stylelint **/*.{vue,css,scss} --fix --ignore-path .gitignore",
     "lint": "yarn lint:js && yarn lint:style"
   },
   "lint-staged": {
@@ -29,12 +31,15 @@
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/style-resources": "^1.0.0",
     "@nuxtjs/stylelint-module": "^4.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
     "eslint-plugin-nuxt": "^1.0.0",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.1",
     "stylelint": "^13.6.1",
     "stylelint-config-standard": "^20.0.0"
   }
