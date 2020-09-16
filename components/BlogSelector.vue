@@ -2,13 +2,25 @@
   <aside>
     <b-menu>
       <b-menu-list label="Sections">
-        <b-menu-item icon="settings" :active="isActive" expanded>
-          <template slot="label" slot-scope="props">
-            2020
-            <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-down' : 'menu-up'" />
-          </template>
-          <b-menu-item icon="file-document" label="Blog 0" />
-        </b-menu-item>
+        <span v-for="(item, i) in Object.keys(sections)" :key="i">
+          <b-menu-item v-if="(i === 0)" class="is-reversed has-text-weight-bold" icon="settings" :active="isActive" expanded>
+            <template slot="label" slot-scope="props">
+              {{ item }}
+              <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'" />
+            </template>
+
+            <b-menu-item v-for="(content, j) in sections[item]" :key="j" icon="file-document" :label="content.title" />
+          </b-menu-item>
+
+          <b-menu-item v-else class="is-reversed has-text-weight-bold" icon="settings">
+            <template slot="label" slot-scope="props">
+              {{ item }}
+              <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'" />
+            </template>
+
+            <b-menu-item v-for="(content, j) in sections[item]" :key="j" icon="file-document" :label="content.title" />
+          </b-menu-item>
+        </span>
       </b-menu-list>
     </b-menu>
   </aside>
@@ -16,6 +28,15 @@
 
 <script>
 export default {
+  props: {
+    sections: {
+      type: Object,
+      default () {
+        return { year: [] }
+      }
+    }
+  },
+
   data () {
     return {
       isActive: true
@@ -23,3 +44,10 @@ export default {
   }
 }
 </script>
+
+<style>
+  .is-reversed ul {
+    display: flex;
+    flex-flow: column-reverse;
+  }
+</style>

@@ -1,13 +1,42 @@
 <template>
   <main class="columns">
-    <blogSelector class="column is-one-quarter" />
+    <blogSelector :sections="sections" class="column is-one-quarter" />
 
     <article class="column">
-      <h1>{{ blog.title }}</h1>
-      <nuxt-content :document="blog" />
+      <h1>{{ latestContent.title }}</h1>
+      <nuxt-content :document="latestContent" />
     </article>
   </main>
 </template>
+
+<script>
+import BlogSelector from '~/components/BlogSelector'
+
+export default {
+  name: 'Blog',
+  components: {
+    BlogSelector
+  },
+
+  async asyncData ({ $content }) {
+    const publishedSections = ['2020']
+    const totalPublishedSections = publishedSections.length
+    const latestSection = await $content(publishedSections[0]).fetch()
+    const latestContent = await $content(latestSection[(latestSection.length - 1)].path).fetch()
+    const sections = {}
+
+    for (let i = 0; i < totalPublishedSections; i += 1) {
+      const selectedSection = publishedSections[i]
+      sections[selectedSection] = await $content(selectedSection).fetch()
+    }
+
+    return {
+      latestContent,
+      sections
+    }
+  }
+}
+</script>
 
 <style lang="scss">
   main {
@@ -31,22 +60,3 @@
     margin-left: -1.5rem;
   }
 </style>
-
-<script>
-import BlogSelector from '~/components/BlogSelector'
-
-export default {
-  name: 'Blog',
-  components: {
-    BlogSelector
-  },
-
-  async asyncData ({ $content }) {
-    const blog = await $content('/2020/blog-0').fetch()
-
-    return {
-      blog
-    }
-  }
-}
-</script>
