@@ -18,7 +18,7 @@ export default {
   components: {
     BlogSelector
   },
-  /* eslint-disable */
+
   async asyncData ({ $content, store }) {
     const publishedSections = store.getters['blog/publishedSections']
     const lastItemIndex = publishedSections.length
