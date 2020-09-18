@@ -46,13 +46,15 @@ export default {
     })
   },
 
-  created () {
-    const storedSectionIndex = document.sessionStorage.getItem('sectionIndex')
+  mounted () {
+    const storedSectionIndex = window.sessionStorage.getItem('sectionIndex')
     console.log('mounted')
     if (storedSectionIndex !== null) {
       this.$store.commit('blog/selectSection', parseInt(storedSectionIndex))
       this.$store.commit('blog/updateSection')
-      document.sessionStorage.removeItem('sectionIndex')
+      this.$store.commit('blog/selectBlog', 0)
+      this.$store.commit('blog/updateBlog')
+      window.sessionStorage.removeItem('sectionIndex')
     }
   },
 
