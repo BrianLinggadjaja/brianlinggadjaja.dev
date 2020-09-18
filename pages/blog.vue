@@ -1,15 +1,16 @@
 <template>
   <main class="columns">
-    <blogSelector :sections="sections" class="column is-one-quarter" />
+    <blogSelector class="column is-one-quarter" />
 
     <article class="column">
-      <h1>{{ latestContent.title }}</h1>
-      <nuxt-content :document="latestContent" />
+      <h1>{{ selectedBlog.title }}</h1>
+      <nuxt-content :document="selectedBlog" />
     </article>
   </main>
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
 import BlogSelector from '~/components/BlogSelector'
 
 export default {
@@ -18,23 +19,49 @@ export default {
     BlogSelector
   },
 
-  async asyncData ({ $content }) {
-    const publishedSections = ['2020']
-    const totalPublishedSections = publishedSections.length
-    const latestSection = await $content(publishedSections[0]).fetch()
-    const latestContent = await $content(latestSection[(latestSection.length - 1)].path).fetch()
-    const sections = {}
+  async asyncData ({ $content, store }) {
+    const publishedSections = store.getters['blog/publishedSections']
+    const lastItemIndex = publishedSections.length
+    const listings = []
 
-    for (let i = 0; i < totalPublishedSections; i += 1) {
-      const selectedSection = publishedSections[i]
-      sections[selectedSection] = await $content(selectedSection).fetch()
+    for (let i = 0; i < lastItemIndex; i += 1) {
+      const year = publishedSections[i]
+      const blogs = await $content(year)
+        .sortBy('createdAt', 'desc')
+        .fetch()
+
+      const listing = {}
+      listing[year] = blogs
+      listings.push(listing)
     }
 
-    return {
-      latestContent,
-      sections
+    store.commit('blog/initalizeListings', listings)
+    store.commit('blog/updateSection')
+    store.commit('blog/updateBlog')
+  },
+
+  computed: {
+    ...mapGetters({
+      selectedBlog: 'blog/selectedBlog'
+    })
+  },
+
+  mounted () {
+    const storedSectionIndex = window.sessionStorage.getItem('sectionIndex')
+
+    if (storedSectionIndex !== null) {
+      this.$store.commit('blog/selectSection', parseInt(storedSectionIndex))
+      this.$store.commit('blog/updateSection')
+      window.sessionStorage.removeItem('sectionIndex')
     }
-  }
+  },
+
+  ...mapMutations({
+    initalizeListings: 'blog/initalizeListings',
+    selectSection: 'blog/selectSection',
+    updateSection: 'blog/updateSection',
+    selectBlog: 'blog/selectBlog'
+  })
 }
 </script>
 

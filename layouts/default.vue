@@ -15,16 +15,38 @@
           Projects
         </b-navbar-item>
         <b-navbar-dropdown label="Blog">
-          <b-navbar-item href="/blog">
-            2020
+          <b-navbar-item v-for="(sections, index) in publishedSections" :key="index" href="/blog" @click="storeSelectedSectionIndex(index)">
+            {{ sections }}
           </b-navbar-item>
         </b-navbar-dropdown>
       </template>
     </b-navbar>
-
     <nuxt />
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+import Logo from '~/components/Logo'
+
+export default {
+  components: {
+    Logo
+  },
+
+  computed: {
+    ...mapGetters({
+      publishedSections: 'blog/publishedSections'
+    })
+  },
+
+  methods: {
+    storeSelectedSectionIndex (index) {
+      window.sessionStorage.setItem('sectionIndex', index)
+    }
+  }
+}
+</script>
 
 <!-- Global SCSS -->
 <style lang="scss">
@@ -44,13 +66,3 @@ html {
   width: 2.5rem;
 }
 </style>
-
-<script>
-import Logo from '~/components/Logo'
-
-export default {
-  components: {
-    Logo
-  }
-}
-</script>

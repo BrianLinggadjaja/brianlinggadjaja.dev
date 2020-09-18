@@ -2,52 +2,66 @@
   <aside>
     <b-menu>
       <b-menu-list label="Sections">
-        <span v-for="(item, i) in Object.keys(sections)" :key="i">
-          <b-menu-item v-if="(i === 0)" class="is-reversed has-text-weight-bold" icon="settings" :active="isActive" expanded>
+        <div v-for="(item, i) in publishedSections" :key="i">
+          <b-menu-item v-if="(i === sectionIndex)" class="has-text-weight-bold" icon="settings" active expanded>
             <template slot="label" slot-scope="props">
               {{ item }}
               <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'" />
             </template>
 
-            <b-menu-item v-for="(content, j) in sections[item]" :key="j" icon="file-document" :label="content.title" />
+            <div v-for="(content, j) in listings[i][item]" :key="j">
+              <b-menu-item class="has-text-weight-normal" :active="(j === blogIndex) ? 'active' : null" icon="file-document" :label="content.title" @click="updateSelectedBlog(j)" />
+            </div>
           </b-menu-item>
 
-          <b-menu-item v-else class="is-reversed has-text-weight-bold" icon="settings">
+          <b-menu-item v-else class="has-text-weight-bold" icon="settings" @click="updateSelectedSection(i)">
             <template slot="label" slot-scope="props">
               {{ item }}
               <b-icon class="is-pulled-right" :icon="props.expanded ? 'menu-up' : 'menu-down'" />
             </template>
 
-            <b-menu-item v-for="(content, j) in sections[item]" :key="j" icon="file-document" :label="content.title" />
+            <div v-for="(content, j) in listings[i][item]" :key="j">
+              <b-menu-item class="has-text-weight-normal" icon="file-document" :label="content.title" @click="updateSelectedBlog(j)" />
+            </div>
           </b-menu-item>
-        </span>
+        </div>
       </b-menu-list>
     </b-menu>
   </aside>
 </template>
 
 <script>
+import { mapMutations, mapGetters } from 'vuex'
+
 export default {
-  props: {
-    sections: {
-      type: Object,
-      default () {
-        return { year: [] }
-      }
-    }
+  computed: {
+    ...mapGetters({
+      listings: 'blog/listings',
+      publishedSections: 'blog/publishedSections',
+      sectionIndex: 'blog/sectionIndex',
+      blogIndex: 'blog/blogIndex'
+    })
   },
 
-  data () {
-    return {
-      isActive: true
+  ...mapMutations({
+    selectSection: 'blog/selectSection',
+    updateSection: 'blog/updateSection',
+    selectBlog: 'blog/selectBlog',
+    updateBlog: 'blog/updateBlog'
+  }),
+
+  methods: {
+    updateSelectedSection (index) {
+      this.$store.commit('blog/selectSection', index)
+      this.$store.commit('blog/updateSection')
+      this.$store.commit('blog/selectBlog', 0)
+      this.$store.commit('blog/updateBlog')
+    },
+
+    updateSelectedBlog (index) {
+      this.$store.commit('blog/selectBlog', index)
+      this.$store.commit('blog/updateBlog')
     }
   }
 }
 </script>
-
-<style>
-  .is-reversed ul {
-    display: flex;
-    flex-flow: column-reverse;
-  }
-</style>
