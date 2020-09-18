@@ -18,7 +18,7 @@ export default {
   components: {
     BlogSelector
   },
-
+  /* eslint-disable */
   async asyncData ({ $content, store }) {
     const publishedSections = store.getters['blog/publishedSections']
     const lastItemIndex = publishedSections.length
@@ -34,7 +34,7 @@ export default {
       listing[year] = blogs
       listings.push(listing)
     }
-
+    console.log('async')
     store.commit('blog/initalizeListings', listings)
     store.commit('blog/updateSection')
     store.commit('blog/updateBlog')
@@ -46,13 +46,13 @@ export default {
     })
   },
 
-  mounted () {
-    const storedSectionIndex = window.sessionStorage.getItem('sectionIndex')
-
+  created () {
+    const storedSectionIndex = document.sessionStorage.getItem('sectionIndex')
+    console.log('mounted')
     if (storedSectionIndex !== null) {
       this.$store.commit('blog/selectSection', parseInt(storedSectionIndex))
       this.$store.commit('blog/updateSection')
-      window.sessionStorage.removeItem('sectionIndex')
+      document.sessionStorage.removeItem('sectionIndex')
     }
   },
 
