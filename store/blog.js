@@ -1,4 +1,4 @@
-const publishedSectionsArray = ['2020', '2019']
+const publishedSectionsArray = ['2020']
 
 export const state = () => ({
   publishedSections: publishedSectionsArray,
