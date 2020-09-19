@@ -9,7 +9,7 @@ after_success:
   - cd dist
   - git remote rm origin
   - git remote add origin https://username:${GH_TOKEN}@github.com/BrianLinggadjaja/mynameisbrian.dev-Public
-  - echo "mynameisbrian" > CNAME
+  - echo "mynameisbrian.dev" > CNAME
   - git add .
   - git commit -m "Completed Travis-CI automated build"
   - git push -fq origin ${GIT_BRANCH}
