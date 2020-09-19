@@ -8,7 +8,7 @@ This week I learned more about the core features of `Nuxt.js` while I build a dy
 
 ## Using Nuxt.js & Vuex to Dynamically Generate and Route Blog posts
 
-I spent a lot of time understanding what the key differences in `Nuxt.js` and proccess flow compared to vanilla `Vue.js` and how to statically generate a site using Nuxt.js uses a **state-management** library such as `VueX`. I dynamically loaded each **blog sections** & **blogs** dependent on how the folder structure was set up in the directory listing with the help with Nuxt.js's `content module`. The content module provides a **head-less CMS** within the library and browser integration that updates the blog's **markdown** in **real time**.
+I spent a lot of time understanding what the key differences in `Nuxt.js` and proccess flow compared to vanilla `Vue.js` and how to statically generate a site using Nuxt.js uses a **state-management** library such as `VueX`. I dynamically loaded each **blog sections** & **blogs** dependent on how the folder structure was set up in the directory listing. With the help of Nuxt.js's `content module`, it supports **MarkDown** content creation through a _head-less CMS_ or **Content Management System** and supports browser integration that updates the blog's _MarkDown_ in **real time**
 
 <img src="/assets/2020/nuxt-content-module.gif" style="max-width: 30rem;" alt="blog file structure" />
 
@@ -26,6 +26,6 @@ Find more on **Docker** in the following link: https://www.docker.com/
 
 I create a whole development/deployment workflow for this website to implement **CI/CD** principles using `Travis-CI`. I created two repositories on **GitHub**, one with my uncompiled code and another with _only_ compiled code available to my `GitHub Pages` repo which hosts my personal website. I learned about how to set-up my _travis.yml_ configuration file to properly **Test & Build** my application pipeline. I was able to implement Travis-CI for free since I have a public repo and I know I most likely won't go over the 100 build limit in case I switch over to a private repo, for now I should recieve no cost for a service to run my pipeline. I had encountered a technical barrier of having to host the root compiled code on my personal websites on GitHub Pages since I needed a way to compile my compile my code while ensuring the proper directory structure is maintained on my second public repo for my compiled codebase.
 
-<img src="/assets/2020/travis-ci.png" style="max-width: 30rem;" alt="travis pipeline build status" />
+<img src="/assets/2020/travis-ci.gif" style="max-width: 30rem;" alt="travis pipeline build status" />
 
 Find more about CI pipelines from **Travis-CI** at the following link: https://travis-ci.org/
