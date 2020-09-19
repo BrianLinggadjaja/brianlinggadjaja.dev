@@ -10,5 +10,5 @@ after_success:
   - git remote rm origin
   - git remote add origin https://username:${GH_TOKEN}@github.com/BrianLinggadjaja/mynameisbrian.dev-Public
   - git add .
-  - git commit -m "Travis-CI automated build"
+  - git commit -m "Completed Travis-CI automated build"
   - git push -fq origin ${GIT_BRANCH}
