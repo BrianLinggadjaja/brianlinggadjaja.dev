@@ -88,4 +88,8 @@ export default {
     margin-top: 1.5rem;
     margin-left: -1.5rem;
   }
+
+  img {
+    margin: 1rem 0;
+  }
 </style>

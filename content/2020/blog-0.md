@@ -14,7 +14,7 @@ I did some research on domain name providers and ended up going with `NameCheap`
 
 <div class="columns">
   <aside class="column is-one-quarter is-centered" style="max-width: 8rem;">
-    <img src="/assets/logos.png" alt="brand logos" />
+    <img src="/assets/2020/logos.png" alt="brand logos" />
   </aside>
 
   <p class="column">
