@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "test": "yarn prod",
     "dev": "nuxt",
     "dev:spa": "nuxt --spa",
     "prod": "yarn lint; yarn generate",
