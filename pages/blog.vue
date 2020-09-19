@@ -34,7 +34,7 @@ export default {
       listing[year] = blogs
       listings.push(listing)
     }
-    console.log('async')
+
     store.commit('blog/initalizeListings', listings)
     store.commit('blog/updateSection')
     store.commit('blog/updateBlog')
@@ -48,7 +48,7 @@ export default {
 
   mounted () {
     const storedSectionIndex = window.sessionStorage.getItem('sectionIndex')
-    console.log('mounted')
+
     if (storedSectionIndex !== null) {
       this.$store.commit('blog/selectSection', parseInt(storedSectionIndex))
       this.$store.commit('blog/updateSection')
