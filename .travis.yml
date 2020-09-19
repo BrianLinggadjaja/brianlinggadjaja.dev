@@ -7,7 +7,8 @@ after_success:
   - git clone https://github.com/BrianLinggadjaja/mynameisbrian.dev-Public.git
   - mv mynameisbrian.dev-Public/.git dist/
   - cd dist
-  - git pull
+  - git remote rm origin
+  - git remote add origin https://username:${GH_TOKEN}@github.com/BrianLinggadjaja/mynameisbrian.dev-Public
   - git add .
   - git commit -m "Travis-CI automated build"
-  - git push -fq origin staging
+  - git push -fq origin master
