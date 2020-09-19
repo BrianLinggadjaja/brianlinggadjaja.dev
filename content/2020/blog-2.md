@@ -14,7 +14,7 @@ I spent a lot of time understanding what the key differences in `Nuxt.js` are co
 
 ## Using Docker to Spin up a LAMPstack Web-Server
 
-Using `docker`, I was able to create a **containerized enviornment** to support/deploy a **LAMP** stack web-application. With just a few commands like `docker run -it ubuntu:latest` to build an enviornment based off a pre-existing remote dockerfile hosted on `docker-hub`. I then interfaced with the container via CLI with the following command `docker exec -it HASH/Alias bash` and was able to have the full experience similar to a **VM**.
+Using `docker`, I was able to create a **containerized enviornment** to support/deploy a **LAMP** stack web-application. With just a few commands like `docker run -it ubuntu:latest` to build an enviornment based off a pre-existing remote dockerfile hosted on `docker-hub`. I then interfaced with the container via CLI with the following command `docker exec -it HASH/Alias bash` and was able to have the full experience similar to a Virtual Machine **VM**.
 
 <img src="/assets/docker-container.png" style="max-width: 30rem;" alt="brand logos" />
 
