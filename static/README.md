@@ -1,11 +1,9 @@
-# STATIC
+# mynameisbrian.dev
 
-**This directory is not required, you can delete it if you don't want to use it.**
+## Description
 
-This directory contains your static files.
-Each file inside this directory is mapped to `/`.
-Thus you'd want to delete this README.md before deploying to production.
+This repo is the compiled site for my personal website @ _https://mynameisbrian.dev/_
 
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
+**Build process running on Travis-CI**
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/assets#static).
+**DOCS** : _https://docs.travis-ci.com/user/languages/javascript-with-nodejs/_
