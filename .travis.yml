@@ -1,3 +1,12 @@
 language: node_js
 node_js:
-    - lts/*
+  - lts/*
+
+after_success:
+  - git remote rm origin
+  - git remote add origin https://username:${GH_TOKEN}@github.com/BrianLinggadjaja/mynameisbrian.dev-Public
+  - cd dist
+  - git add .
+  - git commit -m "Travis-CI automated build"
+  - git push -fq origin master
+  - echo -e "Travis-CI Build Completed\n"
