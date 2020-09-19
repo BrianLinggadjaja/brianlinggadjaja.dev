@@ -3,7 +3,7 @@ node_js:
   - lts/*
 
 after_success:
-  - mv .git dist
+  - rm -rf .git
   - cd dist
   - git init
   - git remote rm origin
