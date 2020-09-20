@@ -8,7 +8,7 @@ This week I learned more about the core features of `Nuxt.js` while I build a dy
 
 ## Using Nuxt.js & Vuex to Dynamically Generate and Route Blog posts
 
-I spent a lot of time understanding what the key differences in `Nuxt.js` and process flow compared to vanilla `Vue.js` and how to statically generate a site using Nuxt.js uses a **state-management** library such as `VueX`. I dynamically loaded each **blog sections** & **blogs** dependent on how the folder structure was set up in the directory listing. With the help of Nuxt.js's `content module`, it supports **Mark Down** content creation through a _head-less CMS_ or **Content Management System** and supports browser integration that updates the blog's _Mark Down_ in **real time**
+I spent a lot of time understanding what the key differences in `Nuxt.js` and process flow compared to vanilla `Vue.js` and how to statically generate a site using Nuxt.js uses a **state-management** library such as `VueX`. I dynamically loaded each **blog sections** & **blogs** dependent on how the folder structure was set up in the directory listing. With the help of Nuxt.js's `content module`, it supports **Mark Down** content creation through a _head-less CMS_ or **Content Management System** and supports browser integration that updates the blog's _Mark Down_ in **real time**.
 
 <img src="/assets/2020/nuxt-content-module.gif" style="max-width: 30rem;" alt="blog file structure" />
 
