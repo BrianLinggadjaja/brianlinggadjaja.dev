@@ -86,7 +86,10 @@ export default {
     font-weight: bold;
     font-size: 1.25rem;
     margin-top: 1.5rem;
-    margin-left: -1.5rem;
+
+    & .icon-link {
+      margin-left: -1.5rem;
+    }
   }
 
   img {
