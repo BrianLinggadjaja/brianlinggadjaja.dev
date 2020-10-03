@@ -12,7 +12,7 @@ It was so easy to install, I quickly span up a **docker container** based off **
 
 <img src="/assets/2020/nginx-welcome.png" style="max-width: 30rem;" alt="nginx landing page" />
 
-Installation was super simple but the hardest part of webservers is **configuration**. I looked through the _Nginx_ **documentation** and tried to find settings I think would fit my **core requirements** of how I want to use _Nginx_. Another resource I used was **searching** `"Nginx best practices"` & `"Nginx security configuration"` on my search engine on what type of best practices I should implement within my _Nginx_ configuration. A few configurations I found from my learning were `server_tokens: off`, `HSTS Strict Transport Security`, & follow general **principle of least privledge** practices.
+Installation was super simple but the hardest part of webservers is **configuration**. I looked through the _Nginx_ **documentation** and tried to find settings I think would fit my **core requirements** of how I want to use _Nginx_. Another resource I used was **searching** `"Nginx best practices"` & `"Nginx security configuration"` on my search engine for what type of best practices I should implement within my _Nginx_ configuration. A few configurations I found from my learning were `server_tokens: off`, `HSTS Strict Transport Security`, & follow general **principle of least privledge** practices.
 
 <br>
 
