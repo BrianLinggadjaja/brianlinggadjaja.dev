@@ -22,7 +22,7 @@ Here's a link to touchegg if intersted in setting up your own: [Touchegg GitHub 
 
 <img src="/assets/2020/linux_touchegg.gif" style="max-width: 30rem;" alt="trackpad multi-finger gesture" />
 
-As you can see from the above *gif*, I was able to set-up a multi-figer swipe to change my different *workspaces* on my machine. *Touchegg* provides support for (*swipes*, *touches*, *zooming*, *multi-finger*) with pre-made functionality or your own **custom commands** to run!
+As you can see from the above *gif*, I was able to set-up a multi-figer swipe to change my different *workspaces* on my machine. *Touchegg* provides support for (*swipes*, *touches*, *zooming*, *multi-finger*) with pre-made functionality or your own **custom commands** to run.
 
 ## Using Rclone to interface with Google Drive
 I encountered a problem with my *Linux* enviornment in which my *shared* folder on my **Google Drive** does not support a *Linux* interface. One of the solutions I found was **Rclone** which allows you to use the *CLI* to run **CRUD** (*Create/Read/Update/Delete*) functionality on **cloud storage** providers like *Google, AWS, Azure, etc.* to manage your storage *locally* and *remote* changes. I used a command like `rclone copy` or `rclone sync` to manage these updates through a Command Line Interface (*CLI*). 
@@ -31,4 +31,4 @@ I encountered a problem with my *Linux* enviornment in which my *shared* folder 
 
 Learn more about managing your cloud storage providers at the following link... 
 
-[Rclone Documentation](https://rclone.org/docs/)
+[Rclone Documentation](https://rcglone.org/docs/)
