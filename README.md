@@ -1,5 +1,7 @@
 # mynameisbrian.dev
 
+Original Date of Creation: 09/11/2020
+
 ## Description
 This repo is the uncompiled site for my personal website @ https://mynameisbrian.dev/
 
