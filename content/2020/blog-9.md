@@ -23,8 +23,8 @@ Find the Pokemon API at: [Pokemon API](https://pokeapi.co/)
 
 <br>
 
-The *Pokemon API* provides a specified `GET` request http route that can be used to interface in gathering *pokemon information*. The route I wanted to request was referenced as `https://pokeapi.co/api/v2/ability/{id or name}/`. Since the request can be sent as a **unique id** of the *Pokemon*, I was able to use all **Generation 1** pokemon with a number limiter of *150* (All 150 Gen 1 Pokemon). This pokemon request returned back to me *2 key* pieces of data I needed, the Pokemon `name` & `img src`. From there on I used this data during the **processing** portion of my *Interaction System* to generate a *unique* pet.
+The *Pokemon API* provides a specified `GET` request `http` route that can be used to interface in gathering *pokemon information*. The route I wanted to request was referenced as `https://pokeapi.co/api/v2/ability/{id or name}/`. Since the request can be sent as a **unique id** of the *Pokemon*, I was able to use all **Generation 1** pokemon with a number limiter of *150* (*All 150 Gen 1 Pokemon*). This pokemon request returned back to me *2 key* pieces of data I needed, the Pokemon `name` & `img src`. From there on I used this data during the **processing** portion of my *Interaction System* to generate a *unique* pet.
 
 <img src="/assets/2020/pokemon_tamagotchi.png" style="max-width: 12rem;" alt="tamagotchi pokemon" />
 
-Try it yourself at  my GitHub Repository at: [GitHub Repo](https://github.com/BrianLinggadjaja/tamagotchi_pokemon_pet)
+Try it yourself at  my GitHub Repository at: [Pokemon Tamagotchi Repo](https://github.com/BrianLinggadjaja/tamagotchi_pokemon_pet)
