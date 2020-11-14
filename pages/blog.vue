@@ -29,7 +29,6 @@ export default {
       const blogs = await $content(year)
         .sortBy('index', 'desc')
         .fetch()
-      console.log(blogs)
       const listing = {}
       listing[year] = blogs
       listings.push(listing)
