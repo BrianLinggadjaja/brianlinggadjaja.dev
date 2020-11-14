@@ -1,5 +1,6 @@
 ---
 title: Blog 8
+index: 8
 ---
 
 **Date**: _10/30/2020_

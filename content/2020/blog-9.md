@@ -1,5 +1,6 @@
 ---
 title: Blog 9
+index: 9
 ---
 
 **Date**: _11/06/2020_

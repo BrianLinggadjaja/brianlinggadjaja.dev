@@ -27,9 +27,9 @@ export default {
     for (let i = 0; i < lastItemIndex; i += 1) {
       const year = publishedSections[i]
       const blogs = await $content(year)
-        .sortBy('createdAt', 'desc')
+        .sortBy('index', 'desc')
         .fetch()
-
+      console.log(blogs)
       const listing = {}
       listing[year] = blogs
       listings.push(listing)
