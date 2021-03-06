@@ -1,0 +1,24 @@
+# Blog 2
+
+In this blog we will be building a VuePress website to statically generate content for this Blog.
+
+---
+
+VuePress is an amazing, simple easy to use **Static Site Generator (SSG)** tool I recently started using to build this Blog and work on Documentation. VuePress has the same design principles that in my personal opinion makes the **Vue.js** framework great!
+
+
+## Setting up VuePress
+
+With VuePress, **HTML** content is **pre-loaded** statically and dynamically rendered using an **Single Page Application (SPA)** after the inital load. Content is generated through a parent/sub-parent folder structure with each directory containing **markdown** file content. To install **VuePress** you can use the following command inside a terminal to quickly create *boilerplate* **VuePress** code `yarn create vuepress-site [optionalDirectoryName]`. On initial install of **VuePress** there will be an inital `config.js` file where you can configure your global settings for your **VuePress** which contains settings like **personalization**, **page structure**, **etc.**.
+
+![Vuepress Splash Page](/blog2/vuepress-config.png)
+
+## Styling your VuePress Page
+
+**VuePress** allows a group of *preset* variables to customize your inital *themeing* within your page under the `palette.styl` file. For any other customizations needed, **VuePress** uses a `.styl` file for customization where you can use a **CSS** type language to customize your page.
+
+![Vuepress Styling](/blog2/style-sheet.png)
+
+Using this method of styling, I was able to quickly personalize my website with a new theme!
+
+![Website Splash Page](/blog2/splash-page.png)
