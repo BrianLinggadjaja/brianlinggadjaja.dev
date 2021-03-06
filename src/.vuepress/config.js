@@ -33,7 +33,6 @@ module.exports = {
     editLinkText: '',
     lastUpdated: true,
     smoothScroll: true,
-    base: '/mynameisbrian.dev/',
     logo: '/assets/logo-light.svg',
     nav: [
       {
