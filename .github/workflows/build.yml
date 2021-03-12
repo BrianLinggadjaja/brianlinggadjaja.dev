@@ -24,6 +24,10 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: prod
+      
+      # Test job
+      - name: Display directory listing
+        run: echo "ls -all"
 
       # Runs a single command using the runners shell
       - name: Install dependencies
