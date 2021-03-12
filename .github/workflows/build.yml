@@ -22,7 +22,35 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          ref: prod
+
+      # Updates production branch with main
+      - name: Pull main branch
+        run: git pull origin main
 
       # Runs a single command using the runners shell
-      - name: Test node.js
+      - name: Install dependencies
         run: npm install
+
+      # Compiles repository under src/.vuepress/dist
+      - name: Compile code
+        run: npm run build
+
+      # Change directory into dist
+      - name: Change directory
+        run: cd src/.vuepress/dist
+
+      # Grab git history
+      - name: Fetch current head
+        run: git checkout HEAD^
+
+      # Push to production branch
+      - name: Push newly generated files
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "Auto generated code"
+          git push
+
