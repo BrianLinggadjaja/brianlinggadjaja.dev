@@ -47,7 +47,7 @@ jobs:
 
       # Push to production branch
       - name: Push newly generated files
-      - run: |
+        run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
           git add .
