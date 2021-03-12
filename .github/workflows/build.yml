@@ -37,9 +37,11 @@ jobs:
       - name: Compile code
         run: npm run build
 
-      # Add all newly changed files to be commited
-      - name: Stage files for commit
-        run: git add src/.vuepress/dist
+      # Add new files into production branch
+      - name: Commit files into prod branch
+        run: |
+          rm .gitignore
+          git checkout prod src/.vuepress/dist/.
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
