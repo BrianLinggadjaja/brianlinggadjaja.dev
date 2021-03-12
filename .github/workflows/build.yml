@@ -25,10 +25,6 @@ jobs:
         with:
           ref: prod
 
-      # Updates production branch with main
-      - name: Pull main branch
-        run: git pull origin main
-
       # Runs a single command using the runners shell
       - name: Install dependencies
         run: npm install
