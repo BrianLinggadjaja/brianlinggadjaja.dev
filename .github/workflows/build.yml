@@ -23,10 +23,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
-          ref: prod
-      
-      # Test job
-      - name: Display directory listing
+          ref: main
+
+      # Display Directory
+      - name: Display directory listing for main
         run: ls -all
 
       # Runs a single command using the runners shell
@@ -36,6 +36,19 @@ jobs:
       # Compiles repository under src/.vuepress/dist
       - name: Compile code
         run: npm run build
+
+      # Add all newly changed files to be commited
+      - name: Stage files for commit
+        run: git add src/.vuepress/dist
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: prod
+
+      # Display Directory
+      - name: Display directory listing for prod
+        run: ls -all
 
       # Change directory into dist
       - name: Change directory
@@ -50,7 +63,6 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add .
           git commit -m "Auto generated code"
           git push
 
