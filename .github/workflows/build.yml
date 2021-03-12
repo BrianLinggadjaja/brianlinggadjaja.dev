@@ -27,7 +27,7 @@ jobs:
       
       # Test job
       - name: Display directory listing
-        run: echo "ls -all"
+        run: ls -all
 
       # Runs a single command using the runners shell
       - name: Install dependencies
