@@ -49,19 +49,5 @@ jobs:
           git config user.email github-actions@github.com
           git commit -m "Automated build"
           git status
-          ls -all
-          git stash
-
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        with:
-          ref: prod
-
-      # Push changes to branch
-      - name: Commit to target branch
-        run: |
-          git status
-          git log
-          ls -all
-          git stash pop
-          git push -u origin prod
+          git checkout prod
+          git push --force
