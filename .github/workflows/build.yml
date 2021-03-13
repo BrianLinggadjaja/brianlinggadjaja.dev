@@ -37,22 +37,23 @@ jobs:
         run: npm run build
 
       # Test
-      - name: Prevent git ignore on dist folder
+      - name: Stage compiled code
         run: |
-          sed -i -e 's/dist//g' .gitignore
-          git add .
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git commit -m "Automatic build trigger"
+          mv .git ./src/.vuepress/dist
+          cd ./src/.vuepress/dist
+          git stash
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
           ref: prod
 
-      # Test
-      - name: Add compiled code
+      # Push changes to branch
+      - name: Commit to target branch
         run: |
-          git status
+          git stash pop
+          git add .
+          git commit -m "Automated build action"
           git log
+          ls -all
           git push
