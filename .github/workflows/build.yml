@@ -41,16 +41,18 @@ jobs:
         run: |
           sed -i -e 's/dist//g' .gitignore
           git add .
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "Automatic build trigger"
+
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: prod
+
+      # Test
+      - name: Add compiled code
+        run: |
           git status
-          ls -all
-
-      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v2
-      #   with:
-      #     ref: prod
-
-      # # Test
-      # - name: Add compiled code
-      #   run: |
-      #     git rebase main
-      #     git push
+          git log
+          git push
