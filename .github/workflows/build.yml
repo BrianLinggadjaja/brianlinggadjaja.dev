@@ -43,21 +43,11 @@ jobs:
           ls -all
           cd ./src/.vuepress/dist
           ls -all
-
-      # Attach domain name inside CNAME file
-      - name: Create CNAME
-        run: echo "mynameisbrian.dev" > CNAME
-
-      # Stage current files and commit message
-      - name: Stage and Commit
-        run: |
-          ls -all
-          git status
+          echo "mynameisbrian.dev" > CNAME
           git add .
           git commit -m "Automated build"
           git status
-          git log
-
+          ls -all
 
       # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       # - uses: actions/checkout@v2
