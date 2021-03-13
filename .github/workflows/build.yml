@@ -36,13 +36,8 @@ jobs:
       - name: Compile code
         run: npm run build
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        with:
-          ref: prod
-
-      # Grab commit history and move into compiled directory
-      - name: Grab commit history and mv inside dist
+      # Publish automated build of compiled directory
+      - name: Publish build
         uses: actions/checkout@v2
         run: |
           mv .git ./src/.vuepress/dist
