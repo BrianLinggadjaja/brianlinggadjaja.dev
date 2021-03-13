@@ -41,19 +41,20 @@ jobs:
         run: |
           mv .git ./src/.vuepress/dist
           cd ./src/.vuepress/dist
-          git stash
-
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        with:
-          ref: prod
-
-      # Push changes to branch
-      - name: Commit to target branch
-        run: |
-          git stash pop
-          git add .
-          git commit -m "Automated build action"
-          git log
           ls -all
-          git push
+      #     git stash
+
+      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # - uses: actions/checkout@v2
+      #   with:
+      #     ref: prod
+
+      # # Push changes to branch
+      # - name: Commit to target branch
+      #   run: |
+      #     git stash pop
+      #     git add .
+      #     git commit -m "Automated build action"
+      #     git log
+      #     ls -all
+      #     git push -u origin prod
