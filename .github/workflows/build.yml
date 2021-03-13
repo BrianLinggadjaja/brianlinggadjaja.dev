@@ -1,5 +1,4 @@
 # This is a basic workflow to help you get started with Actions
-
 name: Build Repo
 
 # Controls when the action will run. 
@@ -26,7 +25,7 @@ jobs:
           ref: main
 
       # Display Directory
-      - name: Display directory listing for main
+      - name: Display directory listing
         run: ls -all
 
       # Runs a single command using the runners shell
@@ -41,39 +40,9 @@ jobs:
       - name: Add compiled code
         run: |
           git status
-          git add #./src/.vuepress/dist/.
-          git status
-
-      # # Display Directory
-      # - name: Display directory listing for main
-      #   run: ls -all
-
-      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v2
-      #   with:
-      #     ref: prod
-
-      # # Display Directory
-      # - name: Display directory listing for main
-      #   run: ls -all
-
-      # # Display Directory
-      # - name: Display directory listing for prod
-      #   run: ls -all
-
-      # # Change directory into dist
-      # - name: Change directory
-      #   run: cd src/.vuepress/dist
-
-      # # Grab git history
-      # - name: Fetch current head
-      #   run: git checkout HEAD^
-
-      # # Push to production branch
-      # - name: Push newly generated files
-      #   run: |
-      #     git config user.name github-actions
-      #     git config user.email github-actions@github.com
-      #     git commit -m "Auto generated code"
-      #     git push
-
+          git add .
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git commit -m "Auto generated code"
+          git rebase main
+          git push
