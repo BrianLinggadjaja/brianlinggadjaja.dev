@@ -58,4 +58,7 @@ jobs:
 
       # Push changes to branch
       - name: Commit to target branch
-        run: git push -u origin prod
+        run: |
+          git status
+          git log
+          git push -u origin prod
