@@ -43,28 +43,13 @@ jobs:
 
       # Grab commit history and move into compiled directory
       - name: Grab commit history and mv inside dist
+        uses: actions/checkout@v2
         run: |
           mv .git ./src/.vuepress/dist
-          ls -all
           cd ./src/.vuepress/dist
-          ls -all
           echo "mynameisbrian.dev" > CNAME
-          git add .
           git config user.name github-actions
           git config user.email github-actions@github.com
+          git add .
           git commit -m "Automated build"
-          git status
-          git checkout prod
-          git push --f
-
-      - uses: actions/checkout@v2
-      - run: |
-          mv .git ./src/.vuepress/dist
-          cd ./src/.vuepress/dist
-          echo "mynameisbrian.dev" > CNAME
-          ls -all
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Auto generated build"
-          git push
+          git push origin prod --force
