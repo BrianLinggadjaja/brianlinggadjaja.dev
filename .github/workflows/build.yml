@@ -37,21 +37,20 @@ jobs:
         run: npm run build
 
       # Test
-      - name: Add compiled code
+      - name: Prevent git ignore on dist folder
         run: |
-          git status
+          sed -i -e 's/dist//g' src/.vuepress/dist
           git add .
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git commit -m "Auto generated code"
+          git status
+          ls -all
 
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v2
-        with:
-          ref: prod
+      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # - uses: actions/checkout@v2
+      #   with:
+      #     ref: prod
 
-      # Test
-      - name: Add compiled code
-        run: |
-          git rebase main
-          git push
+      # # Test
+      # - name: Add compiled code
+      #   run: |
+      #     git rebase main
+      #     git push
