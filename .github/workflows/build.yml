@@ -50,6 +50,7 @@ jobs:
           git commit -m "Automated build"
           git status
           ls -all
+          git stash
 
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
@@ -61,4 +62,6 @@ jobs:
         run: |
           git status
           git log
+          ls -all
+          git stash pop
           git push -u origin prod
