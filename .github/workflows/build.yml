@@ -45,21 +45,17 @@ jobs:
           ls -all
           echo "mynameisbrian.dev" > CNAME
           git add .
+          git config user.name github-actions
+          git config user.email github-actions@github.com
           git commit -m "Automated build"
           git status
           ls -all
 
-      # # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      # - uses: actions/checkout@v2
-      #   with:
-      #     ref: prod
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: prod
 
-      # # Push changes to branch
-      # - name: Commit to target branch
-      #   run: |
-      #     git stash pop
-      #     git add .
-      #     git commit -m "Automated build action"
-      #     git log
-      #     ls -all
-      #     git push -u origin prod
+      # Push changes to branch
+      - name: Commit to target branch
+        run: git push -u origin prod
