@@ -37,6 +37,7 @@ jobs:
         run: npm run build
 
       # Publish automated build of compiled directory
+      - uses: actions/checkout@v2
       - name: Publish build
         run: |
           mv .git ./src/.vuepress/dist
@@ -48,3 +49,4 @@ jobs:
           git commit -m "Automated build"
           git status
           git log
+          git push origin prod --force
