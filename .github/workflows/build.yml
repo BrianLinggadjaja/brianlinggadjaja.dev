@@ -38,7 +38,6 @@ jobs:
 
       # Publish automated build of compiled directory
       - name: Publish build
-        uses: actions/checkout@v2
         run: |
           mv .git ./src/.vuepress/dist
           cd ./src/.vuepress/dist
