@@ -40,7 +40,9 @@ jobs:
       - name: Grab commit history and mv inside dist
         run: |
           mv .git ./src/.vuepress/dist
+          ls -all
           cd ./src/.vuepress/dist
+          ls -all
 
       # Attach domain name inside CNAME file
       - name: Create CNAME
@@ -49,6 +51,7 @@ jobs:
       # Stage current files and commit message
       - name: Stage and Commit
         run: |
+          ls -all
           git status
           git add .
           git commit -m "Automated build"
