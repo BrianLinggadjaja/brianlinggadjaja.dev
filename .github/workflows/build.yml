@@ -39,7 +39,7 @@ jobs:
       # Test
       - name: Prevent git ignore on dist folder
         run: |
-          sed -i -e 's/dist//g' src/.vuepress/dist
+          sed -i -e 's/dist//g' .gitignore
           git add .
           git status
           ls -all
