@@ -1,0 +1,98 @@
+# Blog 4
+
+In this blog we will be building a web scraper using **Node.js** **Axios** & **Cherrio** to fetch *ratemyprofessors.com* data.
+
+---
+
+## Overview
+
+With this setup we will be using [Node.js](https://nodejs.org/en/), a back-end framwork built on top of the **Javascript** language. We will also be using [Axios](https://github.com/axios/axios) for http requests, as well as [Cherrio](https://github.com/cheeriojs/cheerio) for HTML parsing that is more similary to **JQuery**.
+
+## Environment Setup
+
+We first need make sure you have a **Node.js** environment installed on your system. After your environment has node, we will want to initalize a specified directory to use node with the following command...
+
+`npm init`
+This command specified by **npm** (node package manager) will help manage any dependencies within your project through the creation of a `package.json` file.
+
+Next we need to install **Axios** and **Cherios** with `npm add axios cheerio`.
+
+## Creating the Web-Scraper
+First and foremost I will be following good practice by having environment configurations stored inside an `.env` file, in which will be imported by the following code.
+
+```js
+// .env mounting and configuration
+require('dotenv/config')
+```
+
+Next we use the **require** statements mount the required libraries **Axios** & **Cheerio**.
+
+```js
+// Base libraries
+const axios = require('axios')
+const cheerio = require('cheerio')
+```
+
+For this example we are going to scrape `ratemyprofessor.com`, a professor rating website and gather professor information. We first have to tailor our fetch *Uniform Resource Identifier (**URI**) to narrow down the information we are requestiong before we scrape.
+
+```js
+// Test params (input)
+const testParam = {
+    firstName: 'Adam',
+    lastName: '',
+    subject: 'Computer Science'
+}
+
+// URI request
+const URL = process.env.BASE_URL
+const path = process.env.QUERY_PATH
+const query = testParam.firstName + ' ' + testParam.lastName
+const schoolID = process.env.SCHOOL_ID
+```
+
+After creating our **URI** we want to target we will use *Axios* to format a **GET** request on the `ratemyprofessor.com` website.
+
+```js
+axios.get(URL + path, {
+    params: {
+        query: query,
+        sid: schoolID
+    }
+})
+```
+
+After doing the fetch we will gather the **reponse** and load that into the html parser **cheerio**. Cheerio runs similar methods such as **JQuery** to manipulate/query for **HTML** elements.
+
+```js
+    .then(function(response) {
+        // Load page into cheerio parser
+        const $ = cheerio.load(response.data)
+```
+
+Finally we will run our scraping functionality, in this example I query for a parent element "listings" then for each listing/iteration, I grab the required info for *subject, rating, & review count*.
+
+```js
+        let listingsObj = {}
+        // Search through RMP listings
+        $('.TeacherCard__StyledTeacherCard-syjs0d-0', '#root').each(function (i, listing) {
+                const subjectInfo = $('.CardSchool__Department-sc-19lmz2k-0', listing).text()
+                const rating = $('.CardNumRating__CardNumRatingNumber-sc-17t4b9u-2', listing).text()
+                let reviewCount = $('.CardNumRating__CardNumRatingCount-sc-17t4b9u-3', listing).text()
+                reviewCount = reviewCount.split(' ')[0] // Grab count only
+                reviewCount = parseInt(reviewCount) // Convert string to int type
+
+                // Return rating & reviewCount as object with key subject
+                listingsObj[subjectInfo] = {
+                    'rating': rating,
+                    'reviewCount': reviewCount
+                }
+            })
+
+        console.log(listingsObj)
+    })
+    .catch(function(error) {
+        console.log(error)
+    })
+```
+With the following code I test it out with the command `node filename.js` and get this output...
+![Webscraper Output](/blog4/web-scraper_output.png)

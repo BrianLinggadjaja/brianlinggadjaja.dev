@@ -47,6 +47,7 @@ module.exports = {
           collapsable: false,
           children: [
             'blog2',
+            'blog4'
           ]
         }
       ],
