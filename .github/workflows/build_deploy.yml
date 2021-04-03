@@ -72,12 +72,12 @@ jobs:
         run: ls -all
 
       # Download new compiled code artifact
-      - name: Upload built directory
+      - name: Download compiled dist artifact
         uses: actions/download-artifact@v2
         with:
           name: dist
           # Download into current project directory
-          path: ./
+          path: ~/dist
 
       # Display Directory
       - name: List 5
