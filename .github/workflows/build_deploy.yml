@@ -1,9 +1,9 @@
-# This is a basic workflow to help you get started with Actions
+# Name of the workflow called under GitHub Actions
 name: Build Repo & Deploy to Specified Branch
 
 # Controls when the action will run. 
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
+  # Triggers the workflow on push events but only for the main or test-action branch
   push:
     branches: [ main, test-action ]
 
@@ -12,7 +12,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  # Build job
   build:
     name: Build into compiled dist directory
 
@@ -40,10 +40,13 @@ jobs:
         with:
           name: dist
           path: src/.vuepress/dist
+          # Amount of days an artifact is stored before being deleted
           retention-days: 1
 
+  # Deploy job
   deploy:
     name: Deploy compiled code into target branch
+    # Requires a job called "build" as a dependency before starting
     needs: build
 
     # The type of runner that the job will run on
@@ -66,6 +69,8 @@ jobs:
       - name: Move compiled code artifact into working directory
         run: mv ~/dist ./
 
+      # Moves ".git" (git history) + "CNAME" into "dist" directory
+      # Configures git credentials before pushing up to target branch
       - name: Package new compiled code & deploy to target branch
         run: |
           mv .git ./dist
