@@ -1,5 +1,5 @@
 # Name of the workflow called under GitHub Actions
-name: Build Repo & Deploy to Specified Branch
+name: Build Repo & Deploy to GitHub Pages
 
 # Controls when the action will run. 
 on:
