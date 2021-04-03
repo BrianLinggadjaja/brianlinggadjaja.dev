@@ -88,8 +88,8 @@ jobs:
 
       - name: Package new compiled code for commit
         run: |
-          mv .git dist
-          mv CNAME dist
+          mv ./git ./dist
+          mv CNAME ./dist
           cd dist
 
       # Display Directory
