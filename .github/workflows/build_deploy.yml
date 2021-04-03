@@ -14,6 +14,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    name: Build into compiled dist directory
+
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
@@ -47,7 +49,15 @@ jobs:
           name: dist
           path: src/.vuepress/dist
           retention-days: 1
-        
+
+  deploy:
+    name: Deploy compiled code into target branch
+    needs: build
+
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    steps:
       # Display Directory
       - name: List 3
         run: ls -all
