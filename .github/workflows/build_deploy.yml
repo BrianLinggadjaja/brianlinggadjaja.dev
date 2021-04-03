@@ -79,12 +79,20 @@ jobs:
           # Download into current project directory
           path: ~/dist
 
-      - name: Remove all old compiled directories
-        run: find . ! -path ./git -delete
+      - name: Move compiled code artifact into working directory
+        run: mv ~/dist ./
 
-      - name: Move dist items into clean working directory
-        run: mv ~/dist/* ./
+      - name: Package new compiled code for commit
+        run: |
+          mv .git dist
+          mv CNAME dist
+          cd dist
 
       # Display Directory
       - name: List 5
         run: ls -all
+
+      - name: Stage new changes
+        run: |
+          git status
+          ls -all
