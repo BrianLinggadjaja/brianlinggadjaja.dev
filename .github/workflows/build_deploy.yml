@@ -90,12 +90,9 @@ jobs:
         run: |
           mv .git ./dist
           mv CNAME ./dist
-          ls -all
           cd dist
-          ls -all
           git config --global user.email "github-action@users.noreply.github.com"
-          git config --global user.name "github-action"
+          git config --global user.name "GitHub Action"
           git add .
           git commit -m "Automatic build deployment"
           git push
-          ls -all
