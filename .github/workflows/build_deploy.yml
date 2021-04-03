@@ -79,6 +79,9 @@ jobs:
           # Download into current project directory
           path: ~/dist
 
+      - name: Move dist into current directory
+        run: mv /home/runner/dist/* ./
+
       # Display Directory
       - name: List 5
         run: ls -all
