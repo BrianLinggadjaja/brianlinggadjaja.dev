@@ -46,6 +46,7 @@ jobs:
         with:
           name: dist
           path: src/.vuepress/dist
+          retention-days: 1
         
       # Display Directory
       - name: List 3
@@ -58,4 +59,14 @@ jobs:
 
       # Display Directory
       - name: List 4
+        run: ls -all
+
+      # Download new compiled code artifact
+      - name: Upload built directory
+        uses: actions/download-artifact@v2
+        with:
+          name: dist
+
+      # Display Directory
+      - name: List 5
         run: ls -all
