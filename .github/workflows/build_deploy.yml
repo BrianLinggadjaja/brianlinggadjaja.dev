@@ -80,7 +80,11 @@ jobs:
           path: ~/dist
 
       - name: Move dist into current directory
-        run: mv /home/runner/dist/* ./
+        run: |
+          find . ! -path ./git \
+            \( ! -type d -o -empty \) |
+            -delete \
+          mv ~/dist/* ./
 
       # Display Directory
       - name: List 5
