@@ -79,12 +79,11 @@ jobs:
           # Download into current project directory
           path: ~/dist
 
-      - name: Move dist into current directory
-        run: |
-          find . ! -path ./git \
-            \( ! -type d -o -empty \) |
-            -delete \
-          mv ~/dist/* ./
+      - name: Remove all old compiled directories
+        run: find . ! -path ./git -delete
+
+      - name: Move dist items into clean working directory
+        run: mv ~/dist/* ./
 
       # Display Directory
       - name: List 5
