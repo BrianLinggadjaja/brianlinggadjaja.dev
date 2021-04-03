@@ -1,11 +1,11 @@
 # This is a basic workflow to help you get started with Actions
-name: Build Repo
+name: Build Repo & Deploy to Specified Branch
 
 # Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ main, test-action ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
           ref: main
 
       # Display Directory
-      - name: Display directory listing
+      - name: List 1
         run: ls -all
 
       # Runs a single command using the runners shell
@@ -36,16 +36,26 @@ jobs:
       - name: Compile code
         run: npm run build
 
-      # Publish automated build of compiled directory
-      - name: Publish build
-        run: |
-          mv .git ./src/.vuepress/dist
-          cd ./src/.vuepress/dist
-          echo "mynameisbrian.dev" > CNAME
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "Automated build"
-          git status
-          git log
-          git push origin prod --force
+      # Display Directory
+      - name: List 2
+        run: ls -all
+
+      # Save compiled code as artifact
+      - name: Upload built directory
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: src/.vuepress/dist
+        
+      # Display Directory
+      - name: List 3
+        run: ls -all
+      
+        # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+        with:
+          ref: prod
+
+      # Display Directory
+      - name: List 4
+        run: ls -all
