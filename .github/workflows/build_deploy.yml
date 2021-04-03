@@ -26,10 +26,6 @@ jobs:
         with:
           ref: main
 
-      # Display Directory
-      - name: List 1
-        run: ls -all
-
       # Runs a single command using the runners shell
       - name: Install dependencies
         run: npm install
@@ -37,10 +33,6 @@ jobs:
       # Compiles repository under src/.vuepress/dist
       - name: Compile code
         run: npm run build
-
-      # Display Directory
-      - name: List 2
-        run: ls -all
 
       # Save compiled code as artifact
       - name: Upload built directory
@@ -58,18 +50,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Display Directory
-      - name: List 3
-        run: ls -all
-      
         # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
         with:
           ref: prod
-
-      # Display Directory
-      - name: List 4
-        run: ls -all
 
       # Download new compiled code artifact
       - name: Download compiled dist artifact
@@ -81,10 +65,6 @@ jobs:
 
       - name: Move compiled code artifact into working directory
         run: mv ~/dist ./
-      
-      # Display Directory
-      - name: List 5
-        run: ls -all
 
       - name: Package new compiled code & deploy to target branch
         run: |
