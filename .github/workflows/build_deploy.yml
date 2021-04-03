@@ -81,6 +81,10 @@ jobs:
 
       - name: Move compiled code artifact into working directory
         run: mv ~/dist ./
+      
+      # Display Directory
+      - name: List 5
+        run: ls -all
 
       - name: Package new compiled code for commit
         run: |
@@ -89,7 +93,7 @@ jobs:
           cd dist
 
       # Display Directory
-      - name: List 5
+      - name: List 6
         run: ls -all
 
       - name: Stage new changes
