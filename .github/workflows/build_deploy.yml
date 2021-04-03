@@ -90,13 +90,10 @@ jobs:
         run: |
           mv .git ./dist
           mv CNAME ./dist
+          ls -all
           cd dist
-
-      # Display Directory
-      - name: List 6
-        run: ls -all
-
-      - name: Stage new changes
-        run: |
-          git status
+          ls -all
+          git add .
+          git commit -m "Automatic build deployment"
+          git push
           ls -all
