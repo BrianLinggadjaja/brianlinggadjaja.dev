@@ -1,0 +1,35 @@
+# Blog 6
+
+In this blog we will be building a simple API on the cloud using [AWS API Gateway](https://aws.amazon.com/api-gateway/) & [AWS Lambda](https://aws.amazon.com/lambda/) that will display *"hello world"* when called.
+
+---
+
+## Creating an Amazon API Gateway
+Knowing API requirements will lead you to decide what type of *API Type* will be selected when creating an Amazon API Gateway. For this case a few example gateway types are referenced here... [HTTP API vs. REST API](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-vs-rest.html). In this case we will be selecting the **HTTP-API** for this example *"hello world"* API. During the creation process, we first specify an API name and will be doing more configurations later after we finish our **Lambda** function.
+
+![AWS API Gateway Configuration](/blog6/api-gateway_creation.png)
+
+## AWS Lambda Configuration
+We first need to define our Lambda function *runtime*/*language* as well as the function name. In this example I will be naming my Lambda `helloLambda` using `Node.js 14.x`. Since Lamba functionality is all **event-trigger** based, we will specify the event whenever our *API Gateway* route is called. In this case during the **trigger** configuration, I specify the previous gateway created `helloworld-api` and set my default security for this case to *open*.
+
+![AWS Lambda Configuration](/blog6/lambda_creation.png)
+
+AWS provides a default `index.js` Lambda will be placed under the bottom panel.
+
+```javascript
+exports.handler = async (event) => {
+    // TODO implement
+    const response = {
+        statusCode: 200,
+        body: JSON.stringify('Hello from Lambda!'),
+    };
+    return response;
+};
+```
+
+This code will handle the **event** from the **trigger** we specified and return a response code of `200` (*success*) followed by a message *"Hello from Lambda!"* when called.
+
+## Amazon API Gateway Configuration
+Now that we have a Lambda function that will trigger when our *API Gateway* is called, we will be configuring it to a specified route to be called via *REST* protocol. During our configuration we can specify a **Route**, in this case a default route will be created when a *Gateway* is created. We will configure an **Integration** to be under a *Lambda function*. During integration configuration we are required to specifiy the **region** & **name of Lambda**. The last step is to test the final API out from the **Invoke URL** specified in the *API Gateway* description.
+
+![Final API Output](/blog6/api-gateway_test.png)

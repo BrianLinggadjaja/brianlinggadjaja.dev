@@ -2,7 +2,7 @@
 home: true
 heroImage: https://v1.vuepress.vuejs.org/hero.png
 tagline: 
-actionText: Visit Blog →
+actionText: Visit Tech Blog →
 actionLink: /blog/
 features:
 - title: Feature 1 Title

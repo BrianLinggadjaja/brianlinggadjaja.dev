@@ -36,19 +36,20 @@ module.exports = {
     logo: '/assets/logo-light.svg',
     nav: [
       {
-        text: 'Blog',
+        text: 'Tech Blog',
         link: '/blog/',
       }
     ],
     sidebar: {
       '/blog/': [
         {
-          title: 'Blog',
+          title: 'Tech Blog',
           collapsable: false,
           children: [
             'blog2',
             'blog4',
-            'blog5'
+            'blog5',
+            'blog6'
           ]
         }
       ],
