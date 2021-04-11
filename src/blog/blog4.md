@@ -38,9 +38,9 @@ For this example we are going to scrape `ratemyprofessor.com`, a professor ratin
 ```js
 // Test params (input)
 const testParam = {
-    firstName: 'Adam',
-    lastName: '',
-    subject: 'Computer Science'
+  firstName: 'Adam',
+  lastName: '',
+  subject: 'Computer Science'
 }
 
 // URI request
@@ -54,45 +54,45 @@ After creating our **URI** we want to target we will use *Axios* to format a **G
 
 ```js
 axios.get(URL + path, {
-    params: {
-        query: query,
-        sid: schoolID
-    }
+  params: {
+    query: query,
+    sid: schoolID
+  }
 })
 ```
 
 After doing the fetch we will gather the **reponse** and load that into the html parser **cheerio**. Cheerio runs similar methods such as **JQuery** to manipulate/query for **HTML** elements.
 
 ```js
-    .then(function(response) {
-        // Load page into cheerio parser
-        const $ = cheerio.load(response.data)
+.then(function(response) {
+  // Load page into cheerio parser
+  const $ = cheerio.load(response.data)
 ```
 
 Finally we will run our scraping functionality, in this example I query for a parent element "listings" then for each listing/iteration, I grab the required info for *subject, rating, & review count*.
 
 ```js
-        let listingsObj = {}
-        // Search through RMP listings
-        $('.TeacherCard__StyledTeacherCard-syjs0d-0', '#root').each(function (i, listing) {
-                const subjectInfo = $('.CardSchool__Department-sc-19lmz2k-0', listing).text()
-                const rating = $('.CardNumRating__CardNumRatingNumber-sc-17t4b9u-2', listing).text()
-                let reviewCount = $('.CardNumRating__CardNumRatingCount-sc-17t4b9u-3', listing).text()
-                reviewCount = reviewCount.split(' ')[0] // Grab count only
-                reviewCount = parseInt(reviewCount) // Convert string to int type
+let listingsObj = {}
+  // Search through RMP listings
+  $('.TeacherCard__StyledTeacherCard-syjs0d-0', '#root').each(function (i, listing) {
+      const subjectInfo = $('.CardSchool__Department-sc-19lmz2k-0', listing).text()
+      const rating = $('.CardNumRating__CardNumRatingNumber-sc-17t4b9u-2', listing).text()
+      let reviewCount = $('.CardNumRating__CardNumRatingCount-sc-17t4b9u-3', listing).text()
+      reviewCount = reviewCount.split(' ')[0] // Grab count only
+      reviewCount = parseInt(reviewCount) // Convert string to int type
 
-                // Return rating & reviewCount as object with key subject
-                listingsObj[subjectInfo] = {
-                    'rating': rating,
-                    'reviewCount': reviewCount
-                }
-            })
+      // Return rating & reviewCount as object with key subject
+      listingsObj[subjectInfo] = {
+        'rating': rating,
+        'reviewCount': reviewCount
+      }
+    })
 
-        console.log(listingsObj)
-    })
-    .catch(function(error) {
-        console.log(error)
-    })
+  console.log(listingsObj)
+})
+.catch(function(error) {
+  console.log(error)
+})
 ```
 
 ::: details View Full Code Example
@@ -105,9 +105,9 @@ const cheerio = require('cheerio')
 
 // Test params (input)
 const testParam = {
-    firstName: 'Adam',
-    lastName: '',
-    subject: 'Computer Science'
+  firstName: 'Adam',
+  lastName: '',
+  subject: 'Computer Science'
 }
 
 // Atach base url to request
@@ -117,34 +117,34 @@ const query = testParam.firstName + ' ' + testParam.lastName
 const schoolID = process.env.SCHOOL_ID
 
 axios.get(URL + path, {
-    params: {
-        query: query,
-        sid: schoolID
-    }
+  params: {
+    query: query,
+    sid: schoolID
+  }
 })
-    .then(function(response) {
-        // Load page into cheerio parser
-        const $ = cheerio.load(response.data)
-        let listingsObj = {}
-        
-        // Search through RMP listings
-        $('.TeacherCard__StyledTeacherCard-syjs0d-0', '#root').each(function (i, listing) {
-                const subjectInfo = $('.CardSchool__Department-sc-19lmz2k-0', listing).text()
-                const rating = $('.CardNumRating__CardNumRatingNumber-sc-17t4b9u-2', listing).text()
-                const reviewCount = $('.CardNumRating__CardNumRatingCount-sc-17t4b9u-3', listing).text()
+  .then(function(response) {
+    // Load page into cheerio parser
+    const $ = cheerio.load(response.data)
+    let listingsObj = {}
+    
+    // Search through RMP listings
+    $('.TeacherCard__StyledTeacherCard-syjs0d-0', '#root').each(function (i, listing) {
+        const subjectInfo = $('.CardSchool__Department-sc-19lmz2k-0', listing).text()
+        const rating = $('.CardNumRating__CardNumRatingNumber-sc-17t4b9u-2', listing).text()
+        const reviewCount = $('.CardNumRating__CardNumRatingCount-sc-17t4b9u-3', listing).text()
 
-                // Return rating & reviewCount as object with key subject
-                listingsObj[subjectInfo] = {
-                    'rating': rating,
-                    'reviewCount': reviewCount
-                }
-            })
+        // Return rating & reviewCount as object with key subject
+        listingsObj[subjectInfo] = {
+          'rating': rating,
+          'reviewCount': reviewCount
+        }
+      })
 
-        console.log(listingsObj)
-    })
-    .catch(function(error) {
-        console.log(error)
-    })
+    console.log(listingsObj)
+  })
+  .catch(function(error) {
+      console.log(error)
+  })
 ```
 
 :::

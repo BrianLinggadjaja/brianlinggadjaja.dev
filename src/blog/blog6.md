@@ -18,12 +18,12 @@ AWS provides a default `index.js` Lambda will be placed under the bottom panel.
 
 ```javascript
 exports.handler = async (event) => {
-    // TODO implement
-    const response = {
-        statusCode: 200,
-        body: JSON.stringify('Hello from Lambda!'),
-    };
-    return response;
+  // TODO implement
+  const response = {
+    statusCode: 200,
+    body: JSON.stringify('Hello from Lambda!'),
+  };
+  return response;
 };
 ```
 

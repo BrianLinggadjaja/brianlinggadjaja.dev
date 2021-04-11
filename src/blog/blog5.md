@@ -8,7 +8,7 @@ In this blog we will create a **GitHub Action** to *build* & *deploy* onto **Git
 For this set-up we will be creating an action with two workflows, the **build** process for the code compilation step into a `dist` directory & the **deploy** process for deploying the newly created code for this blog into a *prod* branch.
 
 
-## Inital GitHub Action Set-up
+## Initial GitHub Action Set-up
 To create a GitHub Action we must create a `.github` directory and a `workflows` directory inside `.github/workflows`. After setting up the inital directory for GitHub Actions to recognize your workflows, you can create a name specified `.yaml` workflow for your project. in my case I named this workflow file `build_deploy.yml` to build automate my compilation of this blog and deploy onto a production branch for GitHub pages to consume.
 
 ## Compiling & Uploading our Code as an Artifact
@@ -69,40 +69,40 @@ Once our code is uploaded as an artifact, it will be available during our workfl
 
 ```yaml
 ...
-    deploy:
-        name: Deploy compiled code into target branch
-        needs: build
+  deploy:
+    name: Deploy compiled code into target branch
+    needs: build
 
-        # The type of runner that the job will run on
-        runs-on: ubuntu-latest
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
 
-        steps:
-            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - uses: actions/checkout@v2
-            with:
-            ref: prod
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+      with:
+      ref: prod
 
-        # Download new compiled code artifact
-        - name: Download compiled dist artifact
-            uses: actions/download-artifact@v2
-            with:
-            name: dist
-            # Download into current project directory
-            path: ~/dist
+    # Download new compiled code artifact
+    - name: Download compiled dist artifact
+      uses: actions/download-artifact@v2
+      with:
+      name: dist
+      # Download into current project directory
+      path: ~/dist
 
-        - name: Move compiled code artifact into working directory
-            run: mv ~/dist ./
+    - name: Move compiled code artifact into working directory
+      run: mv ~/dist ./
 
-        - name: Package new compiled code & deploy to target branch
-            run: |
-            mv .git ./dist
-            mv CNAME ./dist
-            cd dist
-            git config --global user.email "github-action@users.noreply.github.com"
-            git config --global user.name "GitHub Action"
-            git add .
-            git commit -m "Automatic build deployment"
-            git push
+    - name: Package new compiled code & deploy to target branch
+      run: |
+        mv .git ./dist
+        mv CNAME ./dist
+        cd dist
+        git config --global user.email "github-action@users.noreply.github.com"
+        git config --global user.name "GitHub Action"
+        git add .
+        git commit -m "Automatic build deployment"
+        git push
 ```
 
 Here is the full code example of the full **GitHub Action** which compiles my **VuePress Blog** code and Deploys it onto a *prod* branch to be used on **GitHub Pages**
