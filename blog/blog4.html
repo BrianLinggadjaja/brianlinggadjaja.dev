@@ -11,8 +11,8 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     
-    <link rel="preload" href="/assets/css/0.styles.3c180ab8.css" as="style"><link rel="preload" href="/assets/js/app.9686ab56.js" as="script"><link rel="preload" href="/assets/js/2.96f292f9.js" as="script"><link rel="preload" href="/assets/js/12.4aee58d7.js" as="script"><link rel="prefetch" href="/assets/js/10.d26a015a.js"><link rel="prefetch" href="/assets/js/11.e322af09.js"><link rel="prefetch" href="/assets/js/13.b7118032.js"><link rel="prefetch" href="/assets/js/14.bb08e0cc.js"><link rel="prefetch" href="/assets/js/15.ca5f0353.js"><link rel="prefetch" href="/assets/js/3.35ec1c29.js"><link rel="prefetch" href="/assets/js/4.44a78428.js"><link rel="prefetch" href="/assets/js/5.cd926685.js"><link rel="prefetch" href="/assets/js/6.b00d925a.js"><link rel="prefetch" href="/assets/js/7.e35a3c59.js"><link rel="prefetch" href="/assets/js/8.4fe33c00.js"><link rel="prefetch" href="/assets/js/9.d93370f2.js">
-    <link rel="stylesheet" href="/assets/css/0.styles.3c180ab8.css">
+    <link rel="preload" href="/assets/css/0.styles.fa668417.css" as="style"><link rel="preload" href="/assets/js/app.2982ee6c.js" as="script"><link rel="preload" href="/assets/js/2.96f292f9.js" as="script"><link rel="preload" href="/assets/js/12.f6d0216d.js" as="script"><link rel="prefetch" href="/assets/js/10.d26a015a.js"><link rel="prefetch" href="/assets/js/11.e322af09.js"><link rel="prefetch" href="/assets/js/13.e07b8fd1.js"><link rel="prefetch" href="/assets/js/14.7773a566.js"><link rel="prefetch" href="/assets/js/15.a49a9f64.js"><link rel="prefetch" href="/assets/js/3.35ec1c29.js"><link rel="prefetch" href="/assets/js/4.44a78428.js"><link rel="prefetch" href="/assets/js/5.cd926685.js"><link rel="prefetch" href="/assets/js/6.b00d925a.js"><link rel="prefetch" href="/assets/js/7.e35a3c59.js"><link rel="prefetch" href="/assets/js/8.4fe33c00.js"><link rel="prefetch" href="/assets/js/9.d93370f2.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.fa668417.css">
   </head>
   <body>
     <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/assets/logo-light.svg" alt="Hi! I'm Brian" class="logo"> <span class="site-name can-hide">Hi! I'm Brian</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/blog/" class="nav-link router-link-active">
@@ -67,8 +67,54 @@ This command specified by <strong>npm</strong> (node package manager) will help 
     <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
         console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
     <span class="token punctuation">}</span><span class="token punctuation">)</span>
-</code></pre></div><p>With the following code I test it out with the command <code>node filename.js</code> and get this output...
-<img src="/blog4/web-scraper_output.png" alt="Webscraper Output"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/10/2021, 4:30:45 AM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
+</code></pre></div><details class="custom-block details"><summary>View Full Code Example</summary> <div class="language-js extra-class"><pre class="language-js"><code><span class="token comment">// Base libraries</span>
+<span class="token keyword">const</span> env <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'dotenv'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">config</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> axios <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'axios'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> cheerio <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cheerio'</span><span class="token punctuation">)</span>
+
+<span class="token comment">// Test params (input)</span>
+<span class="token keyword">const</span> testParam <span class="token operator">=</span> <span class="token punctuation">{</span>
+    firstName<span class="token operator">:</span> <span class="token string">'Adam'</span><span class="token punctuation">,</span>
+    lastName<span class="token operator">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+    subject<span class="token operator">:</span> <span class="token string">'Computer Science'</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Atach base url to request</span>
+<span class="token keyword">const</span> <span class="token constant">URL</span> <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">BASE_URL</span>
+<span class="token keyword">const</span> path <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">QUERY_PATH</span>
+<span class="token keyword">const</span> query <span class="token operator">=</span> testParam<span class="token punctuation">.</span>firstName <span class="token operator">+</span> <span class="token string">' '</span> <span class="token operator">+</span> testParam<span class="token punctuation">.</span>lastName
+<span class="token keyword">const</span> schoolID <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">SCHOOL_ID</span>
+
+axios<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token constant">URL</span> <span class="token operator">+</span> path<span class="token punctuation">,</span> <span class="token punctuation">{</span>
+    params<span class="token operator">:</span> <span class="token punctuation">{</span>
+        query<span class="token operator">:</span> query<span class="token punctuation">,</span>
+        sid<span class="token operator">:</span> schoolID
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">response</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Load page into cheerio parser</span>
+        <span class="token keyword">const</span> $ <span class="token operator">=</span> cheerio<span class="token punctuation">.</span><span class="token function">load</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>data<span class="token punctuation">)</span>
+        <span class="token keyword">let</span> listingsObj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+        
+        <span class="token comment">// Search through RMP listings</span>
+        <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.TeacherCard__StyledTeacherCard-syjs0d-0'</span><span class="token punctuation">,</span> <span class="token string">'#root'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">each</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">i<span class="token punctuation">,</span> listing</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> subjectInfo <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.CardSchool__Department-sc-19lmz2k-0'</span><span class="token punctuation">,</span> listing<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">const</span> rating <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.CardNumRating__CardNumRatingNumber-sc-17t4b9u-2'</span><span class="token punctuation">,</span> listing<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+                <span class="token keyword">const</span> reviewCount <span class="token operator">=</span> <span class="token function">$</span><span class="token punctuation">(</span><span class="token string">'.CardNumRating__CardNumRatingCount-sc-17t4b9u-3'</span><span class="token punctuation">,</span> listing<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">text</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+                <span class="token comment">// Return rating &amp; reviewCount as object with key subject</span>
+                listingsObj<span class="token punctuation">[</span>subjectInfo<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+                    <span class="token string">'rating'</span><span class="token operator">:</span> rating<span class="token punctuation">,</span>
+                    <span class="token string">'reviewCount'</span><span class="token operator">:</span> reviewCount
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>listingsObj<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">error</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>error<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre></div></details> <p>With the following code I test it out with the command <code>node filename.js</code> and get this output...</p> <p><img src="/blog4/web-scraper_output.png" alt="Webscraper Output"></p></div> <footer class="page-edit"><!----> <div class="last-updated"><span class="prefix">Last Updated:</span> <span class="time">4/11/2021, 7:24:58 PM</span></div></footer> <div class="page-nav"><p class="inner"><span class="prev">
       ←
       <a href="/blog/blog2.html" class="prev">
         Blog 2
@@ -77,6 +123,6 @@ This command specified by <strong>npm</strong> (node package manager) will help 
       </a>
       →
     </span></p></div> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.9686ab56.js" defer></script><script src="/assets/js/2.96f292f9.js" defer></script><script src="/assets/js/12.4aee58d7.js" defer></script>
+    <script src="/assets/js/app.2982ee6c.js" defer></script><script src="/assets/js/2.96f292f9.js" defer></script><script src="/assets/js/12.f6d0216d.js" defer></script>
   </body>
 </html>
