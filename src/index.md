@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: https://v1.vuepress.vuejs.org/hero.png
+heroImage: ./assets/logo-light.svg
 tagline: 
 actionText: Visit Tech Blog →
 actionLink: /blog/
@@ -11,5 +11,5 @@ features:
   details: Feature 2 Description
 - title: Feature 3 Title
   details: Feature 3 Description
-footer: Made by  with ❤️
+footer: Made with ❤️
 ---

@@ -107,6 +107,8 @@ Once our code is uploaded as an artifact, it will be available during our workfl
 
 Here is the full code example of the full **GitHub Action** which compiles my **VuePress Blog** code and Deploys it onto a *prod* branch to be used on **GitHub Pages**
 
+::: details View Full Code Example
+
 ```yaml
 # This is a basic workflow to help you get started with Actions
 name: Build Repo & Deploy to Specified Branch
@@ -187,6 +189,8 @@ jobs:
           git commit -m "Automatic build deployment"
           git push
 ```
+
+:::
 
 With the following GitHub Action running we can check to see on the **Actions Tab** to review our workflow run output.
 
