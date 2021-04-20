@@ -1,6 +1,6 @@
 # Blog 7
 
-In this blog I created a GitHub Actions Reference to help easily reference in learning GitHub Actions (CI/CD tooling).
+In this blog I created a [GitHub Actions](https://docs.github.com/en/actions) reference to help aid in learning GitHub Actions (CI/CD tooling).
 
 # Context
 - Workflows
