@@ -51,7 +51,8 @@ module.exports = {
             'blog5',
             'blog6',
             'blog7',
-            'blog8'
+            'blog8',
+            'blog10'
           ]
         }
       ],
