@@ -33,7 +33,7 @@ module.exports = {
     editLinkText: '',
     lastUpdated: true,
     smoothScroll: true,
-    logo: '/assets/logo-light.svg',
+    logo: '/assets/logo-light-shadow.svg',
     nav: [
       {
         text: 'Tech Blog',
