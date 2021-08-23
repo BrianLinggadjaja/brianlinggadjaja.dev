@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: ./assets/logo-light-shadow.svg
+heroImage: /assets/logo.svg
 tagline: 
 actionText: Visit Tech Blog →
 actionLink: /blog/

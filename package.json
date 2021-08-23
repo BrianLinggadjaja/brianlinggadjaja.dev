@@ -2,6 +2,7 @@
   "name": "mynameisbrian.dev",
   "version": "2.0.0",
   "description": "",
+  "license": "MIT",
   "main": "index.js",
   "authors": {
     "name": "Brian Linggadjaja",
@@ -12,9 +13,8 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src"
   },
-  "license": "MIT",
   "devDependencies": {
-    "vuepress": "^0.14.11"
+    "vuepress": "^1.8.2"
   },
   "dependencies": {
     "yarn": "^1.22.11"
