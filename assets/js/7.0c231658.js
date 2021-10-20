@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{371:function(t,e,n){"use strict";n.r(e);var o={name:"project"},s=n(45),r=Object(s.a)(o,(function(){var t=this.$createElement;return(this._self._c||t)("h1",[this._v("Test Component Import")])}),[],!1,null,null,null);e.default=r.exports}}]);
