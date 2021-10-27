@@ -1,3 +1,4 @@
+const { blogIndex } = require('../.vuepress/blogIndex')
 const { description } = require('../../package')
 
 module.exports = {
@@ -49,15 +50,7 @@ module.exports = {
         {
           title: 'Tech Blog',
           collapsable: false,
-          children: [
-            'blog2',
-            'blog4',
-            'blog5',
-            'blog6',
-            'blog7',
-            'blog8',
-            'blog10'
-          ]
+          children: blogIndex
         }
       ],
     }
