@@ -50,6 +50,7 @@ module.exports = {
         {
           title: 'Tech Blog',
           collapsable: false,
+          sidebarDepth: 1,
           children: blogIndex
         }
       ],
