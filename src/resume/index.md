@@ -74,7 +74,7 @@ Operations, Agile Methodologies, SEO, Debugging, CI/CD, UI/UX, Project Managemen
 
 <div class="container">
 
-<h3 class="title">Bachelor of Science in Computer Information Technology</h3><span class="float-right">Graduated Aug 2021</span>
+**Bachelor of Science in Computer Information Technology**<span class="float-right">Graduated Aug 2021</span>
 
 *California State University, Northridge*
 
@@ -83,6 +83,10 @@ Operations, Agile Methodologies, SEO, Debugging, CI/CD, UI/UX, Project Managemen
 </section>
 
 <style>
+.contact > * {
+  word-break: break-word;
+}
+
 .name, .contact {
   text-align: center;
   margin-bottom: 2rem;
