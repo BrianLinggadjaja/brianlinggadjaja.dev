@@ -12,6 +12,20 @@
 <section class="experience">
 
 <div class="seperator">
+  <h2 class="no-margin-bottom">Technical Skills</h2>
+</div>
+
+<div class="container">
+
+**Technologies**: JavaScript ES6+, HTML, CSS, Node.js, Bash, Python, Java, Jest, Tailwind CSS, Sass, jQuery,
+Docker, AWS, GitHub Actions, Travis CI, Git, JIRA, Ansible, Terraform, Adobe XD, Figma.
+
+**Key Skills**: Web Applications, Responsive Design, Web Accessibility, Version Control, Unit Testing, IT
+Operations, Agile Methodologies, SEO, Debugging, CI/CD, UI/UX, Project Management.
+
+</div>
+
+<div class="seperator">
   <h2 class="no-margin-bottom">Professional Experience</h2>
 </div>
 
@@ -55,20 +69,6 @@
 </div>
 
 <div class="seperator">
-  <h2 class="no-margin-bottom">Technical Skills</h2>
-</div>
-
-<div class="container">
-
-**Technologies**: JavaScript ES6+, HTML, CSS, Node.js, Bash, Python, Java, Jest, Tailwind CSS, Sass, jQuery,
-Docker, AWS, GitHub Actions, Travis CI, Git, JIRA, Ansible, Terraform, Adobe XD, Figma.
-
-**Key Skills**: Web Applications, Responsive Design, Web Accessibility, Version Control, Unit Testing, IT
-Operations, Agile Methodologies, SEO, Debugging, CI/CD, UI/UX, Project Management.
-
-</div>
-
-<div class="seperator">
   <h2 class="no-margin-bottom">Education</h2>
 </div>
 
@@ -87,15 +87,15 @@ Operations, Agile Methodologies, SEO, Debugging, CI/CD, UI/UX, Project Managemen
   word-break: break-word;
 }
 
-.name, .contact {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
 .name {
   display: block;
   font-size: 2rem;
   margin: 0 auto;
+}
+
+.name, .contact {
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .title {
