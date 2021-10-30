@@ -37,6 +37,10 @@ module.exports = {
     logo: '/assets/logo.svg',
     nav: [
       {
+        text: 'My Resume',
+        link: '/resume/'
+      },
+      {
         text: 'Projects',
         link: '/projects/'
       },
